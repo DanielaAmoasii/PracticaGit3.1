@@ -33,9 +33,11 @@ namespace PracticaGit3._1_2022_23
             //Leo el telegrama  
             textoTelegrama = txtTelegrama.Text;
             // telegrama urgente? 
-            if (cbUrgente.Checked)
-                tipoTelegrama = 'u';
+            if (rb_ord.Checked)
+                tipoTelegrama = 'o';
             //Obtengo el número de palabras que forma el telegrama 
+            if (rb_urg.Checked)
+                tipoTelegrama = 'u';
             numPalabras = textoTelegrama.Length;
             //Si el telegrama es ordinario 
             if (tipoTelegrama == 'o')

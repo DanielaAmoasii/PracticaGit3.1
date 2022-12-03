@@ -32,25 +32,16 @@ namespace PracticaGit3._1_2022_23
             double coste;
             //Leo el telegrama
             textoTelegrama = txtTelegrama.Text;
-            // telegrama urgente?
-            if (cbUrgente.Checked)
-                tipoTelegrama = 'u';
-            else
+
+            // telegrama urgente? 
+            if (rb_ord.Checked)
                 tipoTelegrama = 'o';
-     
-            //Obtengo el número de palabras que forma el telegrama
-            numPalabras = 0;
-            for (int i = 0; i < textoTelegrama.Length; i++)
-            {
-                if (textoTelegrama[i] == ' ' ||  textoTelegrama[i] == '.' ||  textoTelegrama[i] == ',')
-                {
-                numPalabras++;
-            }
-        }
-            int longCadena = textoTelegrama.Length - 1;
-            if (textoTelegrama[longCadena] != '.' || textoTelegrama[longCadena] != ' ')
-                numPalabras++;
-            //Si el telegrama es ordinario
+            //Obtengo el número de palabras que forma el telegrama 
+            if (rb_urg.Checked)
+                tipoTelegrama = 'u';
+            numPalabras = textoTelegrama.Length;
+            //Si el telegrama es ordinario 
+
             if (tipoTelegrama == 'o')
                 if (numPalabras <= 10)
                     coste = 2.5;

@@ -25,34 +25,48 @@ namespace PracticaGit3._1_2022_23
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //? Daniela Amoasii Marin y Olga F. Civieta Bermejo 2022-23
             string textoTelegrama;
             char tipoTelegrama = ' ';
             int numPalabras = 0;
             double coste;
-            //? OFCB y DAM 2022-2023
-            //Leo el telegrama  
+            //Leo el telegrama
             textoTelegrama = txtTelegrama.Text;
-            // telegrama urgente? 
+            // telegrama urgente?
             if (cbUrgente.Checked)
                 tipoTelegrama = 'u';
-            //Obtengo el número de palabras que forma el telegrama 
-            numPalabras = textoTelegrama.Length;
-            //Si el telegrama es ordinario 
+            else
+                tipoTelegrama = 'o';
+     
+            //Obtengo el número de palabras que forma el telegrama
+            numPalabras = 0;
+            for (int i = 0; i < textoTelegrama.Length; i++)
+            {
+                if (textoTelegrama[i] == ' ' ||  textoTelegrama[i] == '.' ||  textoTelegrama[i] == ',')
+                {
+                numPalabras++;
+            }
+        }
+            int longCadena = textoTelegrama.Length - 1;
+            if (textoTelegrama[longCadena] != '.' || textoTelegrama[longCadena] != ' ')
+                numPalabras++;
+            //Si el telegrama es ordinario
             if (tipoTelegrama == 'o')
                 if (numPalabras <= 10)
-                    coste = 25;
+                    coste = 2.5;
                 else
-                    coste = 0.5 * numPalabras;
+                    coste = 2.5 + (0.5 * (numPalabras - 10));
             else
-            //Si el telegrama es urgente 
+            //Si el telegrama es urgente
             if (tipoTelegrama == 'u')
                 if (numPalabras <= 10)
                     coste = 5;
                 else
-                    coste = 5 + 0.75 * (numPalabras - 10);
+                    coste = 5 + (0.75 * (numPalabras - 10));
             else
                 coste = 0;
             txtPrecio.Text = coste.ToString() + " euros";
+
         }
-    }
+}
 }
